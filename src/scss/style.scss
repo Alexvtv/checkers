@@ -1,0 +1,133 @@
+@import "~bootstrap/scss/bootstrap";
+.main {
+	padding: 25px;
+	display: grid;
+  	grid-template-columns: 416px 200px;
+  	grid-template-rows: 190px 201px 120px;
+  	grid-gap: 25px;
+	.table {
+		width: 416px;
+		height: 416px;
+		background-color: lightblue;
+		button {
+			height: 50px;
+			width: 50px;
+			display: none;
+			margin-top: 0;
+			border: 0;
+			border-radius: 50%;
+		}
+	}
+	.current-information {
+		grid-column: 1;
+		width: 416px;
+		height: 120px;
+		background-color: lightblue;
+		.step {
+			margin: 6px 0 -6px 0;
+			text-align: center;
+		}
+		.counts {
+			.count {
+				padding-left: 70px;
+				width: 204px;
+				display: inline-block;
+				div {
+					display: inline-block;
+					height: 50px;
+					width: 50px;
+					border-radius: 50%;
+					vertical-align: bottom;
+				}
+			}
+			.count:nth-child(1) {
+				div {
+					background-color: #ffffff;
+				}
+			}
+			.count:nth-child(2) {
+				div {
+					background-color: #000000;
+				}
+			}
+			p {
+				margin-left: 20px;
+				vertical-align: middle;
+				text-align:center;
+				display: inline-block;
+			}
+		}
+	}
+	.timer-main {
+		width: 200px;
+		height: 142px;
+		display: inline-block;
+		background-color: lightblue;
+		vertical-align: top;
+		.gameType {
+			margin: 5px 0 0 20px;
+			width: 160px;
+			height: 25px;
+			p {
+				margin-top: -4px;
+			}
+		}
+		.timer {
+		    background: -webkit-linear-gradient(left, #0000ff 0%, #000091 8%, #000000 25%);
+		    background: -o-linear-gradient(left, #0000ff 0%, #000091 8%, #000000 25%);
+		    background: linear-gradient(to right, #0000ff 0%, #000091 8%, #000000 25%);
+			border: 2px solid grey;
+			border-left: 2px solid #0000ff;
+			width: 160px;
+			height: 40px;
+			color: #0000ff;
+			font-size: 25px;
+			text-align: center;
+			margin: 5px 0 0 20px;
+		}
+	}
+	.block-game {
+		background-color: rgba(112, 112, 112, 0.4);
+		position: absolute;
+		width: 416px;
+		height: 416px;
+		button {
+			cursor: pointer;
+			text-align: center;
+			font-size: 20px;
+			padding-top: 6px;
+			background-color: #919191;
+			width: 130px;
+			height: 50px;
+			position: absolute;
+			top: 208px-25px;
+			left: 208px-65px;
+			border-radius: 5px;
+			border: 3px solid #424242;
+			p {
+				margin: -4px 0 4px 0;
+			}
+		}
+	}
+	.cell {
+		padding: 1px;
+		display: inline-block;
+		vertical-align: top;
+		text-align: center;
+		width: 52px;
+		height: 52px;
+	}
+	.restart-button {
+		grid-column: 2;
+		cursor: pointer;
+		text-align: center;
+		font-size: 20px;
+		padding-top: 6px;
+		background-color: #919191;
+		width: 130px;
+		height: 50px;
+		border-radius: 5px;
+		border: 3px solid #424242;
+		margin-left: 35px;
+	}
+}
