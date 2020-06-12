@@ -994,42 +994,8 @@ class App extends Component {
         {id: 62, active: true, filled: 'secondPlayer', shape: false, queen: false},
         {id: 63, active: false, filled: false, shape: false, queen: false}
       ]});
-    this.setState({ countFirstPlayer: 12 });
-    this.setState({ countSecondPlayer: 12 });
-    this.setState({ queenStep: false });
-    this.setState({ queenStartedFrom: false });
-    this.setState({ queenEated: [] });
-    this.setState({ queenEatedAfterEating: [] });
-    this.setState({ firstStep: true });
-    this.setState({ stepOfFirstPlayer: true });
-    this.setState({ notQueenStartedFrom: false });
-    this.setState({ firstPoint: false });
-    this.setState({ secondPoint: false });
-    this.setState({ thirdPoint: false });
-    this.setState({ fourthPoint: false });
-    this.setState({ firstPointAfterEating: false });
-    this.setState({ secondPointAfterEating: false });
-    this.setState({ thirdPointAfterEating: false });
-    this.setState({ fourthPointAfterEating: false });
-    this.setState({ blockDisplay: 'none' });
+    this.setState({ countFirstPlayer: 12, countSecondPlayer: 12, queenStep: false, queenStartedFrom: false, queenEated: [], queenEatedAfterEating: [], firstStep: true, stepOfFirstPlayer: true, notQueenStartedFrom: false, firstPoint: false, secondPoint: false, thirdPoint: false, fourthPoint: false, firstPointAfterEating: false, secondPointAfterEating: false, thirdPointAfterEating: false, fourthPointAfterEating: false, blockDisplay: 'none' });
   }
-
-	renderCell(i) {
-		return(
-			<Cell
-        checkingEndGame={this.checkingEndGame}
-				firstStep={this.state.firstStep}
-				stepOfFirstPlayer={this.state.stepOfFirstPlayer}
-				secondHandleClick={this.secondHandleClick}
-				shape={this.state.cells[i].shape}
-				firstHandleClick={this.firstHandleClick}
-				filled={this.state.cells[i].filled}
-				active={this.state.cells[i].active}
-				id={this.state.cells[i].id}
-				queen={this.state.cells[i].queen}
-			/>
-		)
-	}
 
   renderTimer() {
     return(
@@ -1047,74 +1013,30 @@ class App extends Component {
   }
 
   render() {
+
+  	let listOfCells = this.state.cells.map(cell => {
+  		return(
+			<Cell
+        		checkingEndGame={this.checkingEndGame}
+				firstStep={this.state.firstStep}
+				stepOfFirstPlayer={this.state.stepOfFirstPlayer}
+				secondHandleClick={this.secondHandleClick}
+				shape={cell.shape}
+				firstHandleClick={this.firstHandleClick}
+				filled={cell.filled}
+				active={cell.active}
+				id={cell.id}
+				key={cell.id}
+				queen={cell.queen}
+			/>
+		)
+  	});
+
     let display = {display: this.state.blockDisplay };
       return (
         <div className='main'>
         	<div className='table'>
-        		{ this.renderCell(0) }
-				    { this.renderCell(1) }
-				    { this.renderCell(2) }
-				    { this.renderCell(3) }
-				    { this.renderCell(4) }
-				    { this.renderCell(5) }
-				    { this.renderCell(6) }
-				    { this.renderCell(7) }
-				    { this.renderCell(8) }
-				    { this.renderCell(9) }
-				    { this.renderCell(10) }
-				    { this.renderCell(11) }
-				    { this.renderCell(12) }
-				    { this.renderCell(13) }
-				    { this.renderCell(14) }
-				    { this.renderCell(15) }
-				    { this.renderCell(16) }
-				    { this.renderCell(17) }
-				    { this.renderCell(18) }
-				    { this.renderCell(19) }
-				    { this.renderCell(20) }
-				    { this.renderCell(21) }
-				    { this.renderCell(22) }
-				    { this.renderCell(23) }
-				    { this.renderCell(24) }
-				    { this.renderCell(25) }
-				    { this.renderCell(26) }
-				    { this.renderCell(27) }
-				    { this.renderCell(28) }
-				    { this.renderCell(29) }
-				    { this.renderCell(30) }
-				    { this.renderCell(31) }
-				    { this.renderCell(32) }
-				    { this.renderCell(33) }
-				    { this.renderCell(34) }
-				    { this.renderCell(35) }
-				    { this.renderCell(36) }
-				    { this.renderCell(37) }
-				    { this.renderCell(38) }
-				    { this.renderCell(39) }
-				    { this.renderCell(40) }
-				    { this.renderCell(41) }
-				    { this.renderCell(42) }
-				    { this.renderCell(43) }
-				    { this.renderCell(44) }
-				    { this.renderCell(45) }
-				    { this.renderCell(46) }
-				    { this.renderCell(47) }
-				    { this.renderCell(48) }
-				    { this.renderCell(49) }
-				    { this.renderCell(50) }
-				    { this.renderCell(51) }
-				    { this.renderCell(52) }
-				    { this.renderCell(53) }
-				    { this.renderCell(54) }
-				    { this.renderCell(55) }
-				    { this.renderCell(56) }
-				    { this.renderCell(57) }
-				    { this.renderCell(58) }
-				    { this.renderCell(59) }
-				    { this.renderCell(60) }
-				    { this.renderCell(61) }
-				    { this.renderCell(62) }
-				    { this.renderCell(63) }
+        		{ listOfCells }
         	</div>
           { this.renderTimer() }
           <button className='restart-button' onClick={this.endGame}>
